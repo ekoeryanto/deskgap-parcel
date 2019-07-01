@@ -1,3 +1,5 @@
+![Preview](./preview.png)
+
 # Deskgap Parcel
 
 A Simple Boilerplate for Deskgap with Parcel
