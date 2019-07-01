@@ -4,12 +4,11 @@
   "description": "deskgap-boilerplate webpack",
   "main": "main.js",
   "scripts": {
-    "build:dev": "ENV=development parcel index.html",
-    "serve:dev": "ENV=development deskgap .",
-    "build:prod": "ENV=production parcel build index.html",
-    "serve:prod": "ENV=production deskgap .",
-    "dev": "npm-run-all -p build:dev serve:dev",
-    "start": "npm-run-all -p build:prod serve:prod"
+    "build:dev": "parcel index.html",
+    "build:prod": "parcel build index.html",
+    "serve": "deskgap .",
+    "dev": "ENV=development npm-run-all -p build:dev serve",
+    "start": "ENV=production npm-run-all -p build:prod serve"
   },
   "repository": {
     "type": "git",
@@ -25,6 +24,11 @@
   "devDependencies": {
     "deskgap": "^0.1.0",
     "parcel": "^1.12.3",
-    "npm-run-all": "^4.1.5"
+    "assemble": "^0.3.83",
+    "concurrently": "^4.1.1",
+    "grunt": "^0.4.5",
+    "sass": "^1.22.1",
+    "styles": "^0.2.1",
+    "wait-on": "^3.2.0"
   }
 }
