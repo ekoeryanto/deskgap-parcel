@@ -7,6 +7,6 @@ app.once('ready', () => {
     if (ENV === 'development') {
       win.loadURL('http://localhost:1234');
     } else {
-      win.loadFile('index.html');
+      win.loadFile('dist/index.html');
     }
 });

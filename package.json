@@ -6,7 +6,10 @@
   "scripts": {
     "build:dev": "ENV=development parcel index.html",
     "serve:dev": "ENV=development deskgap .",
-    "dev": "npm-run-all -p build:dev serve:dev"
+    "build:prod": "ENV=production parcel build index.html",
+    "serve:prod": "ENV=production deskgap .",
+    "dev": "npm-run-all -p build:dev serve:dev",
+    "start": "npm-run-all -p build:prod serve:prod"
   },
   "repository": {
     "type": "git",
