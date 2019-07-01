@@ -33,11 +33,9 @@ A Simple Boilerplate for Deskgap with Parcel
 |:---:|:---:|
 | build:dev | - |
 | serve:dev | - |
-| build:prod | - |
-| serve:prod | - |
 | dev | - |
+| build | - |
 | start | - |
-
 
 ### License
 
