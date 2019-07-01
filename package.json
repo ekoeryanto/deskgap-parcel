@@ -8,7 +8,14 @@
     "serve:dev": "wait-on tcp:1234 && deskgap .",
     "dev": "ENV=development npm-run-all -p build:dev serve:dev",
     "build": "parcel build index.html",
-    "start": "ENV=production deskgap ."
+    "start": "ENV=production deskgap .",
+    "fix:other": "yarn prettier --write",
+    "fix:js": "yarn test:js --fix",
+    "fix": "yarn fix:js && yarn fix:other",
+    "prettier": "prettier \"**/*.{json,md,scss,yaml,yml}\"",
+    "test:other": "yarn prettier --list-different",
+    "test:js": "eslint --ignore-path .gitignore --ignore-path .prettierignore \"**/*.{js,jsx}\"",
+    "test": "yarn test:other && yarn test:js"
   },
   "repository": {
     "type": "git",
@@ -16,19 +23,40 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "eslint --fix",
+      "git add"
+    ],
+    "*.{json,md,scss,yaml,yml}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "bugs": {
     "url": "https://github.com/muhibbudins/deskgap-boilerplate/issues"
   },
   "homepage": "https://github.com/muhibbudins/deskgap-boilerplate#readme",
   "devDependencies": {
-    "assemble": "^0.3.83",
+    "assemble": "^0.24.3",
     "deskgap": "^0.1.0",
+    "eslint": "6.0.1",
+    "eslint-config-prettier": "6.0.0",
+    "eslint-plugin-prettier": "3.1.0",
     "grunt": "^0.4.5",
+    "husky": "2.7.0",
+    "lint-staged": "8.2.1",
+    "npm-run-all": "^4.1.5",
     "parcel": "^1.12.3",
+    "prettier": "1.18.2",
     "sass": "^1.22.1",
     "styles": "^0.2.1",
-    "wait-on": "^3.2.0",
-    "npm-run-all": "^4.1.5"
+    "wait-on": "^3.2.0"
   }
 }
