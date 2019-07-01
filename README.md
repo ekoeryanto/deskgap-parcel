@@ -1,2 +1,3 @@
 # deskgap-boilerplate
-deskgap-boilerplate webpack
+
+A Simple Boilerplate for Deskgap with Parcel
