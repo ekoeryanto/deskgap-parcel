@@ -5,9 +5,9 @@ const PARCEL_SERVE = 'http://localhost:1234';
 const PARCEL_BUILD = 'dist/index.html';
 
 app.once('ready', () => {
-  const win = new BrowserWindow();
-
-  win.setTitleBarStyle('hiddenInset');
+  const win = new BrowserWindow({
+    titleBarStyle: 'hiddenInset',
+  });
 
   if (ENV === 'development') {
     win.loadURL(PARCEL_SERVE);
