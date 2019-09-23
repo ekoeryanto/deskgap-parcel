@@ -9,13 +9,13 @@
     "dev": "ENV=development npm-run-all -p build:dev serve:dev",
     "build": "parcel build index.html",
     "start": "ENV=production deskgap .",
-    "fix:other": "yarn prettier --write",
-    "fix:js": "yarn test:js --fix",
-    "fix": "yarn fix:js && yarn fix:other",
+    "fix:other": "run-s prettier -- --write",
+    "fix:js": "run-s test:js -- --fix",
+    "fix": "npm-run-all -p fix:js fix:other",
     "prettier": "prettier \"**/*.{json,md,scss,yaml,yml}\"",
-    "test:other": "yarn prettier --list-different",
+    "test:other": "run-s prettier -- --list-different",
     "test:js": "eslint --ignore-path .gitignore --ignore-path .prettierignore \"**/*.{js,jsx}\"",
-    "test": "yarn test:other && yarn test:js"
+    "test": "npm-run-all -p test:other test:js"
   },
   "repository": {
     "type": "git",
